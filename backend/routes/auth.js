@@ -15,8 +15,8 @@ authRouter.route("/auth/google/callback").get(
   passport.authenticate("google", {
     session: true,
     successRedirect: "/profile",
-    failureRedirect: "http://localhost:5173/",
-    // failureRedirect: "https://nijiyamaharjan.github.io/Bhitta/",
+    // failureRedirect: "http://localhost:5173/",
+    failureRedirect: "https://nijiyamaharjan.github.io/Bhitta/",
   })
 );
 
@@ -28,8 +28,8 @@ authRouter.route("/profile").get(async (req, res) => {
    window.opener.postMessage(${JSON.stringify({
      token,
      userID: req.user._id,
-  //  })}, 'https://nijiyamaharjan.github.io/Bhitta/');
-   })}, 'http://localhost:5173/');
+   })}, 'https://nijiyamaharjan.github.io/Bhitta/');
+  //  })}, 'http://localhost:5173/');
         window.close();
         </script>
 `
@@ -41,8 +41,8 @@ authRouter.route("/logout").get((req, res) => {
     if (err) {
       return next(err);
     }
-    // res.redirect("https://nijiyamaharjan.github.io/Bhitta/");
-    res.redirect("http://localhost:5173/");
+    res.redirect("https://nijiyamaharjan.github.io/Bhitta/");
+    // res.redirect("http://localhost:5173/");
   });
 });
 
